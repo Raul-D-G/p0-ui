@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <h4 class="modal-title">Tranzactie {{ actiune }} pentru transportul</h4>
+  <p>
+    {{ transport.orasIncarcare }} <i class="fas fa-angle-double-right"></i>
+    {{ transport.orasDescarcare }}
+    {{ transport.pret }}<i class="fas fa-euro-sign"></i>
+  </p>
+</div>
+<div class="modal-body">
+  <h4>De catre:</h4>
+  <p>Expeditor: {{ expeditor.nume }}</p>
+  <p>Adresa: {{ expeditor.adresa }}</p>
+  <p>C.U.I.: {{ expeditor.cui }}</p>
+  <p>Tip abonamet: {{ expeditor.rol.toUpperCase() }}</p>
+  <P>Mail: {{ expeditor.mail }}</P>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close('Close click')"
+  >
+    Închide!
+  </button>
+</div>

@@ -1,0 +1,41 @@
+<ng-progress
+  id="progressBar"
+  [color]="progressBar.currentColor"
+  [thick]="true"
+></ng-progress>
+
+<ngx-alerts></ngx-alerts>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="rutaNavBar()"
+      ><i class="fas fa-truck"></i> LKW-Bursa Transport</a
+    >
+
+    <div class="d-flex">
+      <ul class="navbar-nav me-auto mb-2 mb-lg headerNav">
+        <li class="nav-item" *ngIf="!authService.isLoggedIn()">
+          <a class="nav-link" [routerLink]="['login']" routerLinkActive="active"
+            >Autentificare</a
+          >
+        </li>
+        <li class="dropdown" *ngIf="authService.isLoggedIn()" dropdown>
+          <a class="nav-link dropdown-toggle" dropdownToggle>
+            Salut {{ authService.decodedToken?.user.nume }}
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+            <a class="dropdown-item" [routerLink]="['companie']"
+              ><i class="fas fa-globe"></i>Companie</a
+            >
+            <!-- <a class="dropdown-item"
+              ><i class="fas fa-key"></i>Resetare Parola</a
+            > -->
+            <a class="dropdown-item" (click)="logout()"
+              ><i class="fas fa-sign-out-alt"></i>Logout</a
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

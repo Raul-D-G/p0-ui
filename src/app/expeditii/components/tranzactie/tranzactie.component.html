@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-4">
+    <ng-container *ngIf="transportator; else loader1">
+      <p>Transportator: {{ transportator.nume }}</p>
+      <p>Adresă: {{ transportator.adresa }}</p>
+      <p>C.U.I.: {{ transportator.cui }}</p>
+      <p>Tip abonamet: {{ transportator.rol.toUpperCase() }}</p>
+      <P>Mail: {{ transportator.mail }}</P>
+    </ng-container>
+
+    <ng-template #loader1>Loading...</ng-template>
+  </div>
+  <div class="col-md-8">
+    <ng-container *ngIf="transportItem; else loader">
+      <app-transport
+        [transportItem]="transportItem"
+        [tranzactie]="true"
+        (onStergere)="stergeTranzactieTransport($event)"
+        (onAcceptaTranzactie)="acceptaTranzactieTransport($event)"
+      ></app-transport>
+    </ng-container>
+
+    <ng-template #loader>Loading...</ng-template>
+  </div>
+</div>

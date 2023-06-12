@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="titlu">
+        <h1>Transporturi efectuate</h1>
+      </div>
+      <div *ngFor="let transport of transporturiList">
+        <app-vizualizare-transport
+          [transportItem]="transport"
+          (onDetaliiExpeditor)="detaliiExpeditor($event)"
+        ></app-vizualizare-transport>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="titlu">
+        <h1>Total venituri <i class="fas fa-euro-sign"> :</i></h1>
+      </div>
+      <p class="titlu">
+        {{ venit | currency: "EUR" }}
+      </p>
+    </div>
+  </div>
+</div>

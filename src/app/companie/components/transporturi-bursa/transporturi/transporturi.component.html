@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <app-filtru-transporturi
+        (cautaCurse)="filtru($event)"
+        (onToateCursele)="clearFiltru()"
+        (onSort)="onSortDirection($event)"
+      ></app-filtru-transporturi>
+    </div>
+    <div class="col-md-8">
+      <div class="cart_title">
+        <p>Transporturi disponibile</p>
+        <div
+          *ngFor="
+            let transporturi of transportList
+              | filtruTransporturi: curse.taraIncarcare:'taraIncarcare'
+              | filtruTransporturi: curse.taraDescarcare:'taraDescarcare'
+              | sortTransporturi: [sortParam, sortDirection]
+          "
+        >
+          <app-transport
+            [transportItem]="transporturi"
+            functie="Acceptă transport"
+          ></app-transport>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

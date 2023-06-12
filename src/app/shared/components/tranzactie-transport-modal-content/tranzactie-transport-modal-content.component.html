@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h4 class="modal-title">Detalii Tranzactie Transport</h4>
+  <p>
+    {{ transport.orasIncarcare }} <i class="fas fa-angle-double-right"></i>
+    {{ transport.orasDescarcare }}
+    {{ transport.pret }}<i class="fas fa-euro-sign"></i>
+  </p>
+</div>
+<div class="modal-body">
+  <p>Transportator: {{ transportator.nume }}</p>
+  <p>Adresa: {{ transportator.adresa }}</p>
+  <p>C.U.I.: {{ transportator.cui }}</p>
+  <p>Tip abonamet: {{ transportator.rol.toUpperCase() }}</p>
+  <P>Mail: {{ transportator.mail }}</P>
+</div>
+<div class="modal-footer">
+  <app-button
+    color="#be9b7b"
+    text="Accepta"
+    (btnClick)="acceptaTransportator()"
+  >
+  </app-button>
+
+  <app-button
+    color="#be9b7b"
+    text="Respinge"
+    (btnClick)="respingeTransportator()"
+  >
+  </app-button>
+</div>

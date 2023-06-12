@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title">Detalii Transport</h4>
+  <p>
+    {{ transport.orasIncarcare }} <i class="fas fa-angle-double-right"></i>
+    {{ transport.orasDescarcare }}
+  </p>
+</div>
+<div class="modal-body">
+  <p>Expeditor: {{ companie.nume }}</p>
+  <p>Adresa: {{ companie.adresa }}</p>
+  <p>C.U.I.: {{ companie.cui }}</p>
+  <p>Tip abonamet: {{ companie.rol.toUpperCase() }}</p>
+  <P>Mail: {{ companie.mail }}</P>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close('Close click')"
+  >
+    Închide!
+  </button>
+</div>

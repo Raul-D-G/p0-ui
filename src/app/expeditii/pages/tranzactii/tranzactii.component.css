@@ -1,0 +1,14 @@
+#back {
+  background: url("../../../../assets/img/back.jpg") no-repeat center center
+    fixed;
+  display: table;
+  height: calc(100vh - 160px);
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  padding-bottom: 2%;
+}
+#titlu {
+  text-align: center;
+  padding: 10px;
+}

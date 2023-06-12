@@ -1,0 +1,36 @@
+footer {
+  background-color: #23415c;
+  padding: 1% 5% 1% 5%;
+  color: #fff;
+  min-height: 100px;
+}
+
+.fab {
+  padding: 5px 10px;
+  font-size: 25px;
+  color: #fff;
+}
+
+.fab:hover {
+  color: rgb(0, 89, 255);
+  text-decoration: none;
+}
+
+.fas {
+  font-size: 60px;
+}
+.fas:hover {
+  color: #d5d5d5;
+  text-decoration: none;
+}
+
+#insta:hover {
+  color: deeppink;
+}
+#twit:hover {
+  color: rgb(0, 255, 255);
+}
+
+#goo:hover {
+  color: rgb(191, 255, 0);
+}

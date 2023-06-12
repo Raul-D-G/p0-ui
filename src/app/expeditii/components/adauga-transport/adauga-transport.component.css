@@ -1,0 +1,5 @@
+#back {
+  backdrop-filter: blur(8px);
+  border: 2px solid MediumSeaGreen;
+  border-radius: 5px;
+}

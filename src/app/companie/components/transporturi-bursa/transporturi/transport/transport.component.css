@@ -1,0 +1,23 @@
+.cart_item_image img {
+  width: 150px;
+  height: 110px;
+  padding: 8px;
+  align-self: center;
+}
+
+p {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.numeP {
+  margin-bottom: 15px;
+}
+
+/* .dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+} */

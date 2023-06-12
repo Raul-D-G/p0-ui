@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="row">
+    <div class="col align-self-center mt-4" id="back">
+      <form #transportForm="ngForm" (ngSubmit)="onSubmit(transportForm)">
+        <div class="row">
+          <div class="col-md-5">
+            <label for="numeCompanie" class="form-label">Încărcare</label>
+            <input
+              type="text"
+              name="incarcare"
+              [(ngModel)]="incarcare"
+              required
+              pattern="^[A-Za-z ,ăîâșțĂÎÂȘȚ-]*$"
+              class="form-control"
+              id="incarcare"
+              placeholder="Introduceți adresa pentru încărcare"
+            />
+          </div>
+          <div class="col align-self-center text-center">
+            <i class="fas fa-truck-moving fa-4x"></i>
+          </div>
+          <div class="col-md-5">
+            <label for="adresac" class="form-label">Descărcare</label>
+            <input
+              [disabled]="esteCompletataIncarcare"
+              type="text"
+              name="descarcare"
+              [(ngModel)]="descarcare"
+              class="form-control"
+              required
+              pattern="^[A-Za-z ,ăîâșțĂÎÂȘȚ-]*$"
+              id="descarcare"
+              placeholder="Introduceți adresa pentru descărcare"
+            />
+          </div>
+        </div>
+        <div class="row justify-content-between">
+          <div class="col-md-5">
+            <div class="input-group my-3">
+              <span class="input-group-text" id="pret"
+                >Preț <i class="fas fa-euro-sign"></i
+              ></span>
+              <input
+                type="number"
+                name="pret"
+                ngModel
+                required
+                min="0"
+                #pret="ngModel"
+                class="form-control"
+                id="pret"
+                placeholder="Preț..."
+              />
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="input-group my-3">
+              <span class="input-group-text" id="basic-addon1">Km</span>
+              <input
+                class="form-control"
+                type="number"
+                readonly
+                name="km"
+                [(ngModel)]="km"
+                required
+                class="form-control"
+                id="km"
+                placeholder="Km..."
+              />
+            </div>
+          </div>
+        </div>
+        <div class="input-group my-3">
+          <label class="input-group-text" for="tipMarfa">Tip marfă</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            name="tipMarfa"
+            ngModel
+            required
+            #tipMarfa="ngModel"
+            id="tipMarfa"
+          >
+            <option value="" disabled selected>Alege..</option>
+
+            <option value="normal">Normală</option>
+            <option value="frigo">Frigo</option>
+            <option value="special">Specială</option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          [disabled]="transportForm.invalid"
+          class="btn btn-primary"
+        >
+          Confirmă <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

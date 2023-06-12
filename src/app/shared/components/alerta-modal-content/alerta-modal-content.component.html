@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <h4 class="modal-title">Detalii Tranzactie</h4>
+</div>
+<div class="modal-body">
+  <div *ngIf="this.succes; then thenBlock; else elseBlock"></div>
+  <ng-template #thenBlock
+    ><p>Mesaj: {{ succes.message }}</p>
+    <p>
+      O să fiți notificați când expeditorul o să prelucreze tranzacția!
+    </p></ng-template
+  >
+  <ng-template #elseBlock
+    ><p>Mesaj Eroare: {{ eroare.message }}</p>
+    <p>Va rugam asteptati!</p></ng-template
+  >
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close('Close click')"
+  >
+    Închide!
+  </button>
+</div>

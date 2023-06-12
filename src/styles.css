@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #42a948;
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442;
+}
+
+.btn {
+  display: inline-block;
+  background: #be9b7b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: inherit;
+  transition-duration: 0.4s;
+}
+.btn:focus {
+  outline: none;
+}
+.btn:active {
+  transform: scale(0.8);
+}
+.btn:hover {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+}

@@ -1,0 +1,15 @@
+<div class="container">
+  <div *ngIf="tranzactiiList.length > 0; then thenBlock; else elseBlock"></div>
+  <ng-template #thenBlock
+    ><div *ngFor="let tranzactie of tranzactiiList">
+      <app-tranzactie
+        [tranzactieItem]="tranzactie"
+        (onStergere)="stergeTranzactie($event)"
+        (onAcceptaTranzactie)="acceptaTranzactie($event)"
+      ></app-tranzactie></div
+  ></ng-template>
+  <ng-template #elseBlock
+    >Momentan nu aveți tranzacții pentru transporturile
+    dumneavoastră</ng-template
+  >
+</div>

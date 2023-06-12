@@ -1,0 +1,65 @@
+<div class="card text-white bg-secondary mb-3">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="cart_item_image">
+        <img
+          src="../../../../../../assets/img/{{
+            transportItem.tipMarfa
+          }}Trailer.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="row">
+        <div class="col-2 col-sm-2 mt-4">
+          <div
+            *ngIf="
+              transportItem.tipMarfa == 'frigo';
+              then thenBlock;
+              else elseBlock
+            "
+          ></div>
+          <ng-template #thenBlock>
+            <p class="numeP">Tip Marfă</p>
+            <p>{{ transportItem.tipMarfa }} <i class="fas fa-snowflake"></i></p>
+          </ng-template>
+          <ng-template #elseBlock>
+            <p class="numeP">Tip Marfă</p>
+            <p>
+              {{ transportItem.tipMarfa }}
+              <i class="fas fa-truck-moving"></i>
+            </p>
+          </ng-template>
+        </div>
+        <div class="col-3 col-sm-3 mt-3">
+          <p class="numeP">Încărcare:</p>
+          <p>{{ transportItem.taraIncarcare }},</p>
+          <p>{{ transportItem.orasIncarcare }}</p>
+        </div>
+        <div class="col-3 col-sm-3 mt-3">
+          <p class="numeP">Descărcare:</p>
+          <p>{{ transportItem.taraDescarcare }},</p>
+          <p>{{ transportItem.orasDescarcare }}</p>
+        </div>
+        <div class="col-2 col-sm-2 mt-3">
+          <p class="numeP">Preț <i class="fas fa-euro-sign"></i></p>
+          <p>
+            {{ transportItem.pret | currency: "EUR" }}
+          </p>
+        </div>
+        <div class="col-2 col-sm-2 mt-3">
+          <p class="numeP">Km</p>
+          <p>{{ transportItem.km }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <app-button
+      color="#be9b7b"
+      text="Detalii expeditor"
+      (btnClick)="detaliiExpeditor()"
+    ></app-button>
+  </div>
+</div>

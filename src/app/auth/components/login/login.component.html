@@ -1,0 +1,47 @@
+<div id="back">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 mt-4">
+        <h3>Autentificare</h3>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Adresa de email</label>
+            <input
+              type="mail"
+              name="mail"
+              ngModel
+              required
+              email
+              #mail="ngModel"
+              class="form-control"
+              id="loginEmail"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text">
+              Nu vom distribui niciodată e-mailul dvs.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Parola</label>
+            <input
+              type="password"
+              name="parola"
+              ngModel
+              required
+              #parola="ngModel"
+              class="form-control"
+              id="loginPassword"
+            />
+          </div>
+          <button
+            type="submit"
+            [disabled]="loginForm.invalid"
+            class="btn btn-primary"
+          >
+            Confirma <i class="fas fa-sign-in-alt"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

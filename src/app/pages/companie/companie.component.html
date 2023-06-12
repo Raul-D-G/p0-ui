@@ -1,0 +1,169 @@
+<div id="back">
+  <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="container">
+        <div class="row pad">
+          <div class="col-sm-6">
+            <div class="row">
+              <h2>{{ authService.decodedToken?.user.nume }}</h2>
+              <div class="col-sm-3 descriere">
+                <p>Adresă: {{ authService.decodedToken?.user.adresa }}</p>
+                <p>C.U.I.: {{ authService.decodedToken?.user.cui }}</p>
+              </div>
+              <div class="col-sm-4 descriere">
+                <p>
+                  Tip abonamet:
+                  {{ authService.decodedToken?.user.rol.toUpperCase() }}
+                </p>
+                <P>Mail: {{ authService.decodedToken?.user.mail }}</P>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+          <div class="container-fluid justify-content-between">
+            <!-- Left elements -->
+            <div class="d-flex">
+              <!-- Brand -->
+
+              <a class="navbar-brand" [routerLink]="['/companie']"
+                ><i class="fas fa-truck"></i> LKW-Bursa Transport</a
+              >
+
+              <!-- Search form -->
+              <!-- <form class="input-group w-auto my-auto d-none d-sm-flex">
+                <input
+                  autocomplete="off"
+                  type="search"
+                  class="form-control rounded"
+                  placeholder="Search"
+                  style="min-width: 125px"
+                />
+                <span class="input-group-text border-0 d-none d-lg-flex"
+                  ><i class="fas fa-search"></i
+                ></span>
+              </form> -->
+            </div>
+            <!-- Left elements -->
+
+            <!-- Center elements -->
+            <ul class="navbar-nav flex-row">
+              <li
+                class="nav-item"
+                ngbDropdown
+                display="dynamic"
+                placement="bottom-right"
+              >
+                <a
+                  class="nav-link"
+                  tabindex="0"
+                  ngbDropdownToggle
+                  id="navbarDropdown3"
+                  role="button"
+                >
+                  <i class="fas fa-truck-loading fa-lg">Mărfuri</i>
+                </a>
+                <div
+                  ngbDropdownMenu
+                  aria-labelledby="navbarDropdown3"
+                  class="dropdown-menu"
+                >
+                  <a
+                    *ngIf="authService.getRol() !== 'expeditii'"
+                    [routerLink]="['bursaTransporturi']"
+                    routerLinkActive="router-link-active"
+                    class="btn btn-lg btn-outline-info"
+                    >Caută marfă</a
+                  >
+                  <a
+                    *ngIf="authService.getRol() !== 'transportator'"
+                    [routerLink]="['adaugaTransport']"
+                    routerLinkActive="router-link-active"
+                    class="btn btn-lg btn-outline-info"
+                    >Adaugă marfă</a
+                  >
+                </div>
+              </li>
+              <li
+                class="nav-item"
+                ngbDropdown
+                display="dynamic"
+                placement="bottom-right"
+                *ngIf="authService.getRol() !== 'transportator'"
+              >
+                <a
+                  class="nav-link"
+                  tabindex="0"
+                  ngbDropdownToggle
+                  id="navbarDropdown3"
+                  role="button"
+                >
+                  <i class="fas fa-exchange-alt fa-lg">Tranzacții</i>
+                </a>
+                <div
+                  ngbDropdownMenu
+                  aria-labelledby="navbarDropdown3"
+                  class="dropdown-menu"
+                >
+                  <a
+                    *ngIf="authService.getRol() !== 'transportator'"
+                    [routerLink]="['tranzactii']"
+                    routerLinkActive="router-link-active"
+                    class="btn btn-lg btn-outline-info"
+                    >Tranzacțiile tale</a
+                  >
+                </div>
+              </li>
+            </ul>
+            <!-- Center elements -->
+
+            <!-- Right elements -->
+
+            <ul class="navbar-nav flex-row">
+              <li
+                class="nav-item"
+                ngbDropdown
+                display="dynamic"
+                placement="bottom-right"
+              >
+                <a
+                  class="nav-link"
+                  tabindex="0"
+                  ngbDropdownToggle
+                  id="navbarDropdown3"
+                  role="button"
+                >
+                  <i class="fas fa-truck fa-lg">Transporturi</i>
+
+                  <!-- <span class="badge rounded-pill badge-notification bg-danger"
+                    >!</span -->
+                </a>
+                <div
+                  ngbDropdownMenu
+                  aria-labelledby="navbarDropdown3"
+                  class="dropdown-menu"
+                >
+                  <a
+                    *ngIf="authService.getRol() !== 'expeditii'"
+                    [routerLink]="['transporturiEfectuate']"
+                    routerLinkActive="router-link-active"
+                    class="btn btn-lg btn-outline-info"
+                    >Transporturi efectuate <i class="fas fa-check-circle"></i
+                  ></a>
+                  <a
+                    *ngIf="authService.getRol() !== 'transportator'"
+                    [routerLink]="['veziTransporturi']"
+                    routerLinkActive="router-link-active"
+                    class="btn btn-lg btn-outline-info"
+                    >Transporturile tale <i class="fas fa-donate"></i
+                  ></a>
+                </div>
+              </li>
+            </ul>
+            <!-- Right elements -->
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

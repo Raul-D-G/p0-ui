@@ -1,0 +1,9 @@
+<button
+  [ngStyle]="{ 'background-color': color }"
+  class="btn"
+  (click)="onClick()"
+  (mouseover)="changeStyle($event)"
+  (mouseout)="changeStyle($event)"
+>
+  {{ text }}
+</button>

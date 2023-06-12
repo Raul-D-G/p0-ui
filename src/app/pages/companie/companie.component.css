@@ -1,0 +1,47 @@
+#back {
+  background: url("../../../assets/img/V1.jpg") no-repeat center center fixed;
+  /* display: table; */
+  height: calc(100vh - 160px);
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  padding-bottom: 2%;
+}
+
+.pad {
+  padding-left: 120px;
+  padding-bottom: 20px;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .descriere {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  .warning {
+    display: none;
+  }
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+/* .row.content {
+  height: 450px;
+} */
+
+/* Set gray background color and 100% height */
+/* .sidenav {
+  padding-top: 20px;
+  height: 100%;
+} */
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+/* @media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {
+    height: auto;
+  }
+} */

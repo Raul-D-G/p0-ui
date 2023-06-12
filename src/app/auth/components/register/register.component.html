@@ -1,0 +1,139 @@
+<div id="back">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 mt-4">
+        <form #registerform="ngForm" (ngSubmit)="onSubmit(registerform)">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="numeCompanie" class="form-label"
+                >Nume Companie:</label
+              >
+              <input
+                type="text"
+                name="numeCompanie"
+                ngModel
+                required
+                minlength="4"
+                maxlength="20"
+                pattern="^[A-Za-z0-9. ăîâșțĂÎÂȘȚ]*$"
+                #numeCompanie="ngModel"
+                class="form-control"
+                id="numeCompanie"
+                placeholder="Introduceți numele"
+              />
+              <p
+                class="alert"
+                *ngIf="!numeCompanie.valid && numeCompanie.touched"
+              >
+                Orice șir de caractere cu lungimea cuprinsă între patru și
+                douăzeci.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <label for="adresac" class="form-label">Adresă Companie:</label>
+              <input
+                type="text"
+                name="adresaCompanie"
+                ngModel
+                required
+                maxlength="50"
+                pattern="^[A-Za-z0-9. ăîâșțĂÎÂȘȚ]*$"
+                #adresaCompanie="ngModel"
+                class="form-control"
+                id="adresaCompanie"
+                placeholder="Introduceți adresa"
+              />
+              <p
+                class="alert"
+                *ngIf="!adresaCompanie.valid && adresaCompanie.touched"
+              >
+                Orice șir de caractere cu lungimea maximă de cincizeci
+              </p>
+            </div>
+            <div class="col-md-4">
+              <label for="cuiCompanie" class="form-label"
+                >C.U.I. Companie:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="cuiCompanie"
+                ngModel
+                required
+                maxlength="9"
+                pattern="^[0-9]{1,9}$"
+                #cuiCompanie="ngModel"
+                id="cuiCompanie"
+                placeholder="Introduceți codul unic"
+              />
+              <p
+                class="alert"
+                *ngIf="!cuiCompanie.valid && cuiCompanie.touched"
+              >
+                Număr de identificare, între o cifră și nouă cifre.
+              </p>
+            </div>
+          </div>
+          <div class="input-group my-3">
+            <label class="input-group-text" for="inputGroupSelect01"
+              >Opțiuni cont</label
+            >
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="rol"
+              ngModel
+              required
+              #rol="ngModel"
+              id="inputGroupSelect01"
+            >
+              <option value="" disabled selected>Alege..</option>
+
+              <option value="transportator">Transportator</option>
+              <option value="caraus">Cărăuș</option>
+              <option value="expeditii">Casă de expediții</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="mail" class="form-label">Adresa de email</label>
+            <input
+              type="mail"
+              name="mail"
+              ngModel
+              required
+              email
+              #mail="ngModel"
+              class="form-control"
+              id="registerEmail"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="parola" class="form-label">Parolă</label>
+            <input
+              type="password"
+              name="parola"
+              ngModel
+              required
+              minlength="6"
+              pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&^-_=+])[A-Za-z\d@$!%*#?&^-_=+]{6,}$"
+              #parola="ngModel"
+              class="form-control"
+              id="parola"
+            />
+            <p class="alert" *ngIf="!parola.valid && parola.touched">
+              Șir de caractere ce conține minim șase caractere, cel puțin o
+              literă, cel puțin o cifră și cel puțin un caracter special.
+            </p>
+          </div>
+          <button
+            type="submit"
+            [disabled]="registerform.invalid"
+            class="btn btn-primary"
+          >
+            Confirmă <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

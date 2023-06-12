@@ -1,0 +1,88 @@
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 text-center descriere">
+        <h3>Înscriere companie în platforma LKW-Bursa Transport</h3>
+        <p>
+          Pentru moment, procesul de înscriere a unei noi companii este unul
+          simplu și rapid. Înscrierea se bazeaza pe furnizarea anumitor detalii.
+        </p>
+        <ul>
+          <li>
+            Numele companiei: Orice șir de caractere cu lungimea cuprinsă între
+            patru și douăzeci.
+          </li>
+          <li>
+            Adresa companiei: Orice șir de caractere cu lungimea maximă de
+            cincizeci.
+          </li>
+          <li>
+            Cod unic de înregistrare(C.U.I.): Identificatorul fiscal al unui
+            comerciant, număr de identificare, între o cifră și nouă cifre
+          </li>
+          <li>Abonament: O listă formată din tipurile de abonamente</li>
+          <li>Adresă de email: Orice adresă validă de email.</li>
+          <li>
+            Parolă: Șir de caractere ce conține minim șase caractere, cel puțin
+            o literă, cel puțin o cifră și cel puțin un caracter special
+          </li>
+        </ul>
+
+        <a
+          *ngIf="!authService.isLoggedIn()"
+          [routerLink]="['register']"
+          routerLinkActive="router-link-active"
+          class="btn btn-info"
+          >Inscriere Companie <i class="fas fa-user-plus"></i
+        ></a>
+      </div>
+
+      <div class="col-md-6 align-self-center">
+        <table class="table table-hover table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">
+                LKW-Bursa Transport oferă trei tipuri de opțiuni de cont.
+              </th>
+              <th scope="col">Acces</th>
+              <th scope="col">Funcționalități</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>
+                Transportator - Abonament destinat companiilor de transport ce
+                sunt interesate doar de preluarea transporturilor și de
+                digitalizarea proceselor logistice.
+              </td>
+              <td>Gratuit</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>
+                Casă de expediții - Abonament destinat caselor de expediții sau
+                operatorilor comerciali ce caută camioane disponibile pentru a
+                transporta marfa proprie.
+              </td>
+              <td>Gratuit</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>
+                Cărăuș - Acest abonament deține toate funcționalitățile
+                aplicației. Este cel mai util în practică și deține o importanță
+                mai mare, combinând abonamentele anterioare.
+              </td>
+              <td>Gratuit</td>
+              <td>11</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
