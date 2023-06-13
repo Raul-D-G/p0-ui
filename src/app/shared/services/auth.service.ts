@@ -3,16 +3,20 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
-
+import { SocketIoService } from 'src/app/shared/services/socket-io.service';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  authUrl = 'http://p0-auth-service:8080';
+  authUrl = 'http://rrr.com/api/users';
   helper = new JwtHelperService();
   decodedToken: any;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private socketService: SocketIoService
+  ) {}
 
   login(model: any) {
     return this.http.post(this.authUrl + '/login', model).pipe(
@@ -29,6 +33,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     this.router.navigateByUrl('');
+    this.socketService.disconnect();
   }
 
   register(model: any) {
@@ -53,6 +58,6 @@ export class AuthService {
   }
 
   getCompanieById(id: number) {
-    return this.http.get<any>(`${this.authUrl}/${id}}`);
+    return this.http.get<any>(`${this.authUrl}/${id}`);
   }
 }

@@ -9,7 +9,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class TranzactiiService {
-  tranzactiiUrl = 'http://p0-transactions-service:8080';
+  tranzactiiUrl = 'http://rrr.com/api/transactions';
+
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   registerTranzactie(model: any) {

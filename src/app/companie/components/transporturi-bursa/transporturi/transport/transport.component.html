@@ -2,12 +2,7 @@
   <div class="row">
     <div class="col-lg-3">
       <div class="cart_item_image">
-        <img
-          src="../../../../../../assets/img/{{
-            transportItem.tipMarfa
-          }}Trailer.jpg"
-          alt=""
-        />
+        <img src="assets/img/{{ transportItem.tipMarfa }}Trailer.jpg" alt="" />
       </div>
     </div>
     <div class="col-lg-9">
@@ -45,7 +40,7 @@
         <div class="col-2 col-sm-2 mt-3">
           <p class="numeP">Preț <i class="fas fa-euro-sign"></i></p>
           <p>
-            {{ transportItem.pret | currency: "EUR" }}
+            {{ transportItem.pret | currency : "EUR" }}
           </p>
         </div>
         <div class="col-2 col-sm-2 mt-3">

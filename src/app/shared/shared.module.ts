@@ -22,9 +22,9 @@ import { NotificareTranzactieModalContentComponent } from './components/notifica
 import { VizualizareTransportComponent } from './components/vizualizare-transport/vizualizare-transport.component';
 
 const config: SocketIoConfig = {
-  url: 'http://p0-transactions-service:8080',
+  url: 'http://rrr.com',
   options: {
-    // path: '/ws', // Calea WebSocket către server
+    path: '/ws', // Calea WebSocket către server
   },
 };
 

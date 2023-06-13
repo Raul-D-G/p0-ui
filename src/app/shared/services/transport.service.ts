@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TransportService {
-  transportUrl = 'http://p0-transports-service:8080';
+  transportUrl = 'http://rrr.com/api/transports';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

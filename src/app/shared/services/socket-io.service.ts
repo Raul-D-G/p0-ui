@@ -30,4 +30,8 @@ export class SocketIoService {
   acceptaTransport(accepta: any) {
     this.socket.emit('acceptaTrasnport', accepta);
   }
+
+  disconnect() {
+    this.socket.emit('disconnect');
+  }
 }

@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p0-ui-deployment
+  namespace: p0-namespace
+  labels:
+    app: p0-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: p0-ui
+  template:
+    metadata:
+      labels:
+        app: p0-ui
+    spec:
+      volumes:
+        - name: mongodb-data
+          persistentVolumeClaim:
+            claimName: mongodb-pvc
+      containers:
+        - name: p0-ui
+          image: localhost:5000/p0-ui:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+            - containerPort: 8443
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: 200m
+            requests:
+              memory: 128Mi
+              cpu: 10m
+          env:
+            - name: GoogleMapsAPIKey
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: GoogleMapsAPIKey
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: p0-ui-service
+  namespace: p0-namespace
+  labels:
+    name: p0-ui
+spec:
+  selector:
+    app: p0-ui
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 80
+    - name: https
+      port: 8443
+      targetPort: 80
+  type: ClusterIP

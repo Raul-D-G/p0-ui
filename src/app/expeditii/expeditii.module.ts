@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { CompanieModule } from './../companie/companie.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -30,7 +31,7 @@ import { ListaTranzactiiComponent } from './components/lista-tranzactii/lista-tr
     ExpeditiiRoutingModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAwh8fwzAoQVvP0uBgxuTRC6n2zMhTuctk',
+      apiKey: environment.GoogleMapsAPIKey,
       libraries: ['places'],
     }),
     CompanieModule,
