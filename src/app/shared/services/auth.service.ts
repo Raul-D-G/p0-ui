@@ -25,6 +25,7 @@ export class AuthService {
         if (user.success) {
           localStorage.setItem('token', user.token);
           this.decodedToken = this.helper.decodeToken(user.token);
+          this.socketService.setSocketId(this.decodedToken.user.id);
         }
       })
     );
@@ -33,7 +34,6 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     this.router.navigateByUrl('');
-    this.socketService.disconnect();
   }
 
   register(model: any) {

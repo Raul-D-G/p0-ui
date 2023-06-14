@@ -53,12 +53,18 @@ export class TranzactieTransportModalContentComponent implements OnInit {
     // marcam transportul ca fiind efectuat
     this.transportService.trarnsportEfectuat(data).subscribe(transportObserver);
 
-    // stergem transportul din tabelul cu transporturi efectuate
-    // asta atrage si stergerea tranzactiei
+    // stergem transportul din tabelul cu transporturi
     this.transportService
       .deleteTransport(this.transport.id)
       .subscribe((data) => {
         console.log(data);
+      });
+
+    // se sterge tranzactia din tabelul de trazactii
+    this.tranzactieService
+      .deleteTranzactie(this.transport.id)
+      .subscribe((data) => {
+        console.log(data['message']);
       });
 
     const accepta = {

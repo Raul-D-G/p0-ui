@@ -90,16 +90,15 @@ export class ListaTranzactiiComponent implements OnInit {
     // marcam transportul ca fiind efectuat in tabel
     this.transportService.trarnsportEfectuat(data).subscribe(transportObserver);
 
-    // stergem transportul din tabelul cu transporturi efectuate
-    // asta atrage si stergerea tranzactiei
+    // stergem transportul din tabelul cu transporturi
     this.transportService.deleteTransport(transport.id).subscribe((data) => {
       console.log(data);
     });
 
     // se sterge tranzactia din tabelul de trazactii
-    // this.tranzactiiSerice.deleteTranzactie(transport.id).subscribe((data) => {
-    //   console.log(data['message']);
-    // });
+    this.tranzactiiSerice.deleteTranzactie(transport.id).subscribe((data) => {
+      console.log(data['message']);
+    });
 
     const accepta = {
       idTransportator: tranzactie.idTransportator,
